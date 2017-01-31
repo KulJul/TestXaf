@@ -33,11 +33,10 @@ namespace TestXafSolution2.Module.TestWork2
                 if (!int.TryParse(this.Name, out number))
                     throw new UserFriendlyException(new Exception(" Error : Не верный формат пикета." + 
                                                                   " Он должен быть числом и соответствовать номеру склада + порядковому номеру пикета"));
-
                 
 
                 // Проверка площадки на не пересекаемость
-                CheckAreaIntersect();
+                //CheckAreaIntersect();
             }
 
 
@@ -64,7 +63,7 @@ namespace TestXafSolution2.Module.TestWork2
             base.OnDeleting();
         }
 
-
+        /*
 
         // Проверка площадки на не пересекаемость
         private void CheckAreaIntersect()
@@ -123,7 +122,7 @@ namespace TestXafSolution2.Module.TestWork2
                     areasCollection.Add(countPicket);
             }
         }
-
+        */
 
 
         private XPCollection<AuditDataItemPersistent> auditTrail;

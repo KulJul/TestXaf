@@ -46,6 +46,9 @@ namespace TestXafSolution2.Module.Win.Controllers
             {
                 base.Unlink(args);
             }
+
+
+            this.ObjectSpace.Refresh();
         }
 
         protected override void OnActivated()

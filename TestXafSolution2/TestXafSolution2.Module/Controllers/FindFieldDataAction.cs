@@ -49,6 +49,7 @@ namespace TestXafSolution2.Module.Controllers
                 string paramValue = e.ParameterCurrentValue as string;
                 object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
                     CriteriaOperator.Parse(string.Format("Contains([Name], '{0}')", paramValue)));
+                
                 if (obj != null)
                 {
                     DetailView detailView = Application.CreateDetailView(objectSpace, obj);

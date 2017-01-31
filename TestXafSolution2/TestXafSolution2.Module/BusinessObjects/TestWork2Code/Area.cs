@@ -24,7 +24,7 @@ namespace TestXafSolution2.Module.TestWork2
         public Area(Session session) : base(session) { this.Create_Area = DateTime.Now; }
         public override void AfterConstruction() { base.AfterConstruction(); }
 
-
+        const int DeleteStore = 100;
 
         protected override void OnDeleting()
         {
@@ -44,7 +44,7 @@ namespace TestXafSolution2.Module.TestWork2
         }
 
         protected override void OnSaving()
-        {
+        {            
 
             if (!this.IsDeleted)
             {
@@ -85,6 +85,12 @@ namespace TestXafSolution2.Module.TestWork2
                         if (query[p + 1] - query[p] != 1)
                             throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны быть не разрывными"));
                     }
+
+                    // Пикеты должны принадлежать 1 складу
+                    if (this.Pickets.Select(p=> Convert.ToInt32(p.Name) / DeleteStore).Distinct().Count() != 1)
+                        throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны находится на 1 складе"));
+
+
                 }
 
 
