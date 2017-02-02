@@ -15,7 +15,7 @@ namespace TestXafSolution2.Module.TestWork2
 {
     public static class ConnectionHelper
     {
-        public const string ConnectionString = @"XpoProvider=MSSqlServer;data source=PROGER11\SP10A;integrated security=SSPI;initial catalog=TestWork2";
+        public const string ConnectionString = @"XpoProvider=MSSqlServer;data source=SP10P2\SP10;integrated security=SSPI;initial catalog=TestWork2";
         public static void Connect(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
         {
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);

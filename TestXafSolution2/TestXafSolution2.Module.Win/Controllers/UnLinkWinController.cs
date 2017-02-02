@@ -30,26 +30,31 @@ namespace TestXafSolution2.Module.Win.Controllers
         {
             if (View.GetType() == typeof(ListView) && !View.IsRoot && View.ObjectTypeInfo.Type.Name == "Picket")
             {
-
                 // Нельзя отсоединить пикет, если на площадке есть груз
                 foreach (object item in args.SelectedObjects)
                 {
                     var picket = item as Picket;
-                    if (picket.NumberArea == null || picket.NumberArea.Cargoes.Count == 0 || picket.NumberArea.Cargoes.All(p=>p.Delete_Cargo != DateTime.MinValue))
+                    if (picket.NumberArea == null || picket.NumberArea.Cargoes.Count == 0 || picket.NumberArea.Cargoes.All(p => p.Delete_Cargo != DateTime.MinValue))
                         base.Unlink(args);
                     else
                         throw new UserFriendlyException(new Exception(" Error : " + "Нельзя отсоединить пикет, так как на нем есть груз"));
-
                 }
             }
             else
             {
                 base.Unlink(args);
             }
-
+                
+            this.ObjectSpace.Refresh();
+        }
+        
+        protected override void Link(PopupWindowShowActionExecuteEventArgs args)
+        {
+            base.Link(args);
 
             this.ObjectSpace.Refresh();
         }
+
 
         protected override void OnActivated()
         {

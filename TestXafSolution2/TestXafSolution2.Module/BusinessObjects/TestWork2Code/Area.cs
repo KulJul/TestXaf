@@ -26,6 +26,14 @@ namespace TestXafSolution2.Module.TestWork2
 
         const int DeleteStore = 100;
 
+        public string PicketsString
+        {
+            get
+            {
+                return string.Join(",", Pickets.Select(pt => pt.Name));
+            }
+        }
+
         protected override void OnDeleting()
         {
             //Проверка существования груза на площадке. Отправленный груз тоже проверяется
