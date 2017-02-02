@@ -33,11 +33,15 @@ namespace TestXafSolution2.Module.TestWork2
                 if (!int.TryParse(this.Name, out number))
                     throw new UserFriendlyException(new Exception(" Error : Не верный формат пикета." + 
                                                                   " Он должен быть числом и соответствовать номеру склада + порядковому номеру пикета"));
-                
-
-                // Проверка площадки на не пересекаемость
-                //CheckAreaIntersect();
+                                
             }
+
+
+
+            // Пикеты должны принадлежать 1 складу
+            var AreaFilter = new XPCollection<Picket>(this.Session);
+            if (AreaFilter.Select(p => p.NumberStore).Distinct().Count() != 1)
+                throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны находится на 1 складе"));
 
 
             base.OnSaving();
@@ -62,69 +66,7 @@ namespace TestXafSolution2.Module.TestWork2
 
             base.OnDeleting();
         }
-
-        /*
-
-        // Проверка площадки на не пересекаемость
-        private void CheckAreaIntersect()
-        {
-            if (this.fNumberArea == null)
-                return;
-
-            // Формируем коллекцию введеных площадок
-            var areasCollectionInput = new List<double>();
-            int number = Convert.ToInt32(this.Name);
-
-            areasCollectionInput.Add(number);
-
-
-            // Формируем коллекцию сохраненных площадок 
-            var areasCollection = new List<double>();
-
-            GetCollectionFormatArea(this.fNumberArea.Name, areasCollection);
-
-            var intersect = areasCollectionInput.Intersect(areasCollection);
-
-            if (intersect.Count() == 0)
-                throw new UserFriendlyException(new Exception(" Error : Значения пикета и площадки не пересекаются"));
-        }
-
-
-
-        //Разбиение названия площадки на пикеты 
-        private void GetCollectionFormatArea(string Name, List<double> areasCollection)
-        {
-            var namesArea = Name.Split('-');
-            double number = 0;
-            double numberNext = 1;
-            
-            // Проверка на число
-            if (!double.TryParse(namesArea[0], out number))
-                throw new UserFriendlyException(new Exception(" Error : " + "Площадка имеет не верный формат." + 
-                                                              " Должный формат : X или X-X1, где X и X1 - это номер пикета"));
-
-
-
-            if (namesArea.Length == 1)
-            {
-                areasCollection.Add(Convert.ToDouble(number));
-            }
-            else if (namesArea.Length > 1 && namesArea.Length < 4)
-            {
-                if (!double.TryParse(namesArea[1], out numberNext))
-                    throw new UserFriendlyException(new Exception(" Error : " + "Площадка имеет не верный формат." +
-                                                                  " Должный формат : X или X-X1, где X и X1 - это номер пикета"));
-
-                if (numberNext < number)
-                    throw new UserFriendlyException(new Exception(" Error : Неправильный диапазон площадок "));
-
-                for (var countPicket = number; countPicket <= numberNext; countPicket++)
-                    areasCollection.Add(countPicket);
-            }
-        }
-        */
-
-
+        
         private XPCollection<AuditDataItemPersistent> auditTrail;
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {

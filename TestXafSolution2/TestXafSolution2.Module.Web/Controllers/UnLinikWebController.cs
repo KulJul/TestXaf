@@ -26,7 +26,7 @@ namespace TestXafSolution2.Module.Web.Controllers
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
-
+        
         protected override void Unlink(SimpleActionExecuteEventArgs args)
         {
             try
@@ -73,7 +73,7 @@ namespace TestXafSolution2.Module.Web.Controllers
                 throw new UserFriendlyException(e.Message);
             }
         }
-
+        
         protected override void OnActivated()
         {
             base.OnActivated();

@@ -26,6 +26,7 @@ namespace TestXafSolution2.Module.TestWork2
 
         const int DeleteStore = 100;
 
+        [Browsable(false)]
         public string PicketsString
         {
             get
@@ -95,8 +96,8 @@ namespace TestXafSolution2.Module.TestWork2
                     }
 
                     // Пикеты должны принадлежать 1 складу
-                    if (this.Pickets.Select(p=> Convert.ToInt32(p.Name) / DeleteStore).Distinct().Count() != 1)
-                        throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны находится на 1 складе"));
+                    if (this.Pickets.Select(p=>p.NumberStore).Distinct().Count() != 1)
+                        throw new UserFriendlyException(new Exception(" Error : " + "Пикет принадлежит площадке на которой лежит груз"));
 
 
                 }

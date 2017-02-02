@@ -55,10 +55,10 @@
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xpDataView1 = new DevExpress.Xpo.XPDataView(this.components);
             this.xpView1 = new DevExpress.Xpo.XPView(this.components);
-            this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.filteringUIContext1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpDataView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpView1)).BeginInit();
@@ -292,12 +292,6 @@
             this.xrLabel3.StyleName = "FieldCaption";
             this.xrLabel3.Text = "Пикеты";
             // 
-            // collectionDataSource1
-            // 
-            this.collectionDataSource1.Name = "collectionDataSource1";
-            this.collectionDataSource1.ObjectTypeName = "TestXafSolution2.Module.TestWork2.Area";
-            this.collectionDataSource1.TopReturnedRecords = 0;
-            // 
             // xrLabel7
             // 
             this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
@@ -305,7 +299,7 @@
             this.xrLabel7.Dpi = 100F;
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(175F, 87.5F);
             this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel7.Text = "xrLabel7";
             // 
@@ -316,7 +310,7 @@
             this.xrLabel2.Dpi = 100F;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(175F, 125F);
             this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel2.Text = "xrLabel2";
             // 
@@ -329,6 +323,12 @@
             this.xrLabel8.SizeF = new System.Drawing.SizeF(162F, 18F);
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.Text = "Склад";
+            // 
+            // collectionDataSource1
+            // 
+            this.collectionDataSource1.Name = "collectionDataSource1";
+            this.collectionDataSource1.ObjectTypeName = "TestXafSolution2.Module.TestWork2.Area";
+            this.collectionDataSource1.TopReturnedRecords = 0;
             // 
             // AreaReport
             // 

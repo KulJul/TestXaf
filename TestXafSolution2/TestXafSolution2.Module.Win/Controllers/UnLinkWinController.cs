@@ -60,6 +60,9 @@ namespace TestXafSolution2.Module.Win.Controllers
         {
             base.OnActivated();
             // Perform various tasks depending on the target View.
+
+            if (View.ObjectTypeInfo.Type.Name == "AuditDataItemPersistent")
+                this.Active.SetItemValue("Error", false);
         }
         protected override void OnViewControlsCreated()
         {
