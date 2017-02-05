@@ -27,22 +27,21 @@ namespace TestXafSolution2.Module.TestWork2
                 if (this.NumberStore == null)
                     throw new UserFriendlyException(new Exception(" Error : " + "Нет склада"));
 
-
+                
                 // Делаем проверку на вход. данные, либо 1 элемент
                 int number = 0;
                 if (!int.TryParse(this.Name, out number))
                     throw new UserFriendlyException(new Exception(" Error : Не верный формат пикета." + 
-                                                                  " Он должен быть числом и соответствовать номеру склада + порядковому номеру пикета"));
-                                
+                                                                  " Он должен быть числом"));
+                
+                // Пикеты должны принадлежать 1 складу
+                if (this.NumberArea != null)
+                {
+                    var AreaFilter = new XPCollection<Area>(this.Session, CriteriaOperator.Parse("Number == " + this.NumberArea.Number));
+                    if (AreaFilter.Count != 0 && AreaFilter[0].Pickets.Select(p => p.NumberStore).Distinct().Count() != 1)
+                        throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны находится на 1 складе"));
+                }
             }
-
-
-
-            // Пикеты должны принадлежать 1 складу
-            var AreaFilter = new XPCollection<Picket>(this.Session);
-            if (AreaFilter.Select(p => p.NumberStore).Distinct().Count() != 1)
-                throw new UserFriendlyException(new Exception(" Error : " + "пикеты должны находится на 1 складе"));
-
 
             base.OnSaving();
         }

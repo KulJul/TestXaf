@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="AreaHistory_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Pickets" PropertyName="Pickets" LookupProperty="Object.Name" DataSourcePropertyIsNullMode="SelectAll" />
+        <ColumnInfo Id="Cargoes" PropertyName="Pickets" LookupProperty="Object.Name" DataSourcePropertyIsNullMode="SelectAll" AllowEdit="False" />
+        <ColumnInfo Id="Delete_Area" PropertyName="Delete_Area" Width="70" Index="2" />
+        <ColumnInfo Id="Create_Area" PropertyName="Create_Area" Width="70" Index="1" />
+        <ColumnInfo Id="Name" PropertyName="Name" View="" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

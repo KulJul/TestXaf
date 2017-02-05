@@ -22,20 +22,6 @@ namespace TestXafSolution2.Module.TestWork2
         public override void AfterConstruction() { base.AfterConstruction(); }
 
 
-        protected override void OnSaving()
-        {
-            if (!this.IsDeleted)
-            {
-                // При создании/изменения груза без площадки выдаем ошибку                               
-                if (this.Number_Area == null && this.Delete_Cargo == DateTime.MinValue)
-                    throw new UserFriendlyException(new Exception(" Error : " + "Груз не должен существовать без площадки"));                
-            }
-
-
-            base.OnSaving();
-        }
-
-
         private XPCollection<AuditDataItemPersistent> auditTrail;
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {

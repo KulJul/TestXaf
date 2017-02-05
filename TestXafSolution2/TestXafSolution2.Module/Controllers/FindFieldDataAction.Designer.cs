@@ -44,7 +44,10 @@
             // FindFieldData
             // 
             this.Actions.Add(this.FindFieldDataAction);
-            this.Activated += new System.EventHandler(this.FindFieldData_Activated);
+            this.TargetObjectType = typeof(TestXafSolution2.Module.TestWork2.Store);
+            this.TargetViewNesting = DevExpress.ExpressApp.Nesting.Root;
+            this.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
 
         }
 

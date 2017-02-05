@@ -141,6 +141,18 @@
     <Compile Include="BusinessObjects\TestWork2Code\Store.Designer.cs">
       <DependentUpon>Store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AreaHistoryController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AreaHistoryController.Designer.cs">
+      <DependentUpon>AreaHistoryController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CargoHistoryController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CargoHistoryController.Designer.cs">
+      <DependentUpon>CargoHistoryController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ClearFields.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -181,6 +193,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\AreaHistoryController.resx">
+      <DependentUpon>AreaHistoryController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\CargoHistoryController.resx">
+      <DependentUpon>CargoHistoryController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\ClearFields.resx">
       <DependentUpon>ClearFields.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +256,14 @@
     <EmbeddedResource Include="Images\Cargo.png" />
     <EmbeddedResource Include="Images\Picket.png" />
     <EmbeddedResource Include="Images\Store.png" />
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes_ru.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Welcome.html" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

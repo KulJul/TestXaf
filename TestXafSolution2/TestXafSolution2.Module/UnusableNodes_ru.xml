@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="AreaHistory_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Delete_Area" Caption="Дата разрушения площадки" />
+        <ColumnInfo Id="Create_Area" Caption="Дата создания площадки" />
+        <ColumnInfo Id="Name" Caption="Название" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

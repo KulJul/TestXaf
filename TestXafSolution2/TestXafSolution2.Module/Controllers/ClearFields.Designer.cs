@@ -43,6 +43,8 @@
             // ClearFields
             // 
             this.Actions.Add(this.ClearFieldsAction);
+            this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.Activated += new System.EventHandler(this.ClearFields_Activated);
 
         }

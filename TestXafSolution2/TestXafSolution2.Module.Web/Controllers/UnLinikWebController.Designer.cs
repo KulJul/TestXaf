@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            // 
+            // UnLinikWebController
+            // 
+            this.TargetViewId = "Area_Cargoes_ListView;Area_Pickets_ListView";
+            this.TargetViewNesting = DevExpress.ExpressApp.Nesting.Any;
+            this.TargetViewType = DevExpress.ExpressApp.ViewType.Any;
+            this.TypeOfView = typeof(DevExpress.ExpressApp.View);
+
         }
 
         #endregion

@@ -11,6 +11,7 @@ using System.Linq;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Actions;
 using TestXafSolution2.Module.TestWork2;
+using DevExpress.ExpressApp.DC;
 
 namespace TestXafSolution2.Module.TestWork2
 {
@@ -98,11 +99,8 @@ namespace TestXafSolution2.Module.TestWork2
                     // Пикеты должны принадлежать 1 складу
                     if (this.Pickets.Select(p=>p.NumberStore).Distinct().Count() != 1)
                         throw new UserFriendlyException(new Exception(" Error : " + "Пикет принадлежит площадке на которой лежит груз"));
-
-
+                    
                 }
-
-
             }
 
             base.OnSaving();
@@ -123,10 +121,14 @@ namespace TestXafSolution2.Module.TestWork2
                 return auditTrail;
             }
         }
-
-
     }
 
+    /*
+    [DomainComponent, DefaultClassOptions]
+    public partial class AreaHistory
+    {
+        public string Name { get; set; }
+    }*/
 
 
 }

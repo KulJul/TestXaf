@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="AreaHistoryAction" ToolTip="Дата площадки" ShortCaption="Дата площадки" Caption="Дата площадки" />
+      <Action Id="CargoHistoryAction" Caption="Дата товара" />
+      <Action Id="ClearFieldsAction" ToolTip="Обнулить поля" ShortCaption="Обнулить поля" Caption="Обнулить поля" />
+      <Action Id="FindFieldDataAction" ToolTip="Поиск по имени" ShortCaption="Поиск по имени" Caption="Поиск по имени" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.AuditDataItemPersistent">
       <OwnMembers>
@@ -60,6 +68,17 @@
     <CreatableItem ClassName="TestXafSolution2.Module.TestWork2.Picket" Caption="Пикет" />
     <CreatableItem ClassName="TestXafSolution2.Module.TestWork2.Store" Caption="Склад" />
   </CreatableItems>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" Caption="Корень" />
+      <Item Id="History" Caption="История">
+        <Items>
+          <Item Id="AreaHistory" Caption="История площадки" />
+          <Item Id="CargoHistory" Caption="История товара" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Views>
     <DetailView Id="ActionContainerDashboardOrganizationItem_DetailView">
       <Layout>
@@ -85,8 +104,8 @@
     </ListView>
     <ListView Id="Area_Cargoes_ListView" Caption="Товар">
       <Columns>
-        <ColumnInfo Id="Number_Area" Caption="Номер площадки" />
         <ColumnInfo Id="Name" Caption="Название" />
+        <ColumnInfo Id="Number_Area" Caption="Номер площадки" />
         <ColumnInfo Id="Weight" Caption="Вес" />
         <ColumnInfo Id="Create_Cargo" Caption="Дата прибытия груза" />
         <ColumnInfo Id="Delete_Cargo" Caption="Дата отбытия груза" />
@@ -128,11 +147,12 @@
     </ListView>
     <ListView Id="Area_Pickets_ListView" Caption="Пикет">
       <Columns>
-        <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
         <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="NumberStore" Caption="Номер склада" />
+        <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
       </Columns>
     </ListView>
+    <ListView Id="AreaHistory_ListView" Caption="Площадка" />
     <DetailView Id="AuditDataItemPersistent_DetailView">
       <Items>
         <PropertyEditor Id="Description" Caption="Описание" />
@@ -219,6 +239,15 @@
     <ListView Id="Cargo_LookupListView" Caption="Товар">
       <Columns>
         <ColumnInfo Id="Name" Caption="Название" />
+      </Columns>
+    </ListView>
+    <ListView Id="CargoHistory_ListView" Caption="Товар">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="Название" />
+        <ColumnInfo Id="Number_Area" Caption="Номер площадки" />
+        <ColumnInfo Id="Weight" Caption="Вес" />
+        <ColumnInfo Id="Create_Cargo" Caption="Дата прибытия груза" />
+        <ColumnInfo Id="Delete_Cargo" Caption="Дата отбытия груза" />
       </Columns>
     </ListView>
     <DetailView Id="ChangePasswordOnLogonParameters_DetailView">
@@ -662,8 +691,8 @@
     </ListView>
     <ListView Id="Store_Pickets_ListView" Caption="Пикет">
       <Columns>
-        <ColumnInfo Id="NumberStore" Caption="Номер склада" />
         <ColumnInfo Id="Name" Caption="Название" />
+        <ColumnInfo Id="NumberStore" Caption="Номер склада" />
         <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
       </Columns>
     </ListView>

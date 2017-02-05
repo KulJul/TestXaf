@@ -34,6 +34,8 @@
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
             this.auditTrailModule1 = new DevExpress.ExpressApp.AuditTrail.AuditTrailModule();
             this.conditionalAppearanceModule1 = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
+            this.reportsModuleV21 = new DevExpress.ExpressApp.ReportsV2.ReportsModuleV2();
+            this.reportsWindowsFormsModuleV21 = new DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
@@ -56,6 +58,11 @@
             // 
             this.auditTrailModule1.AuditDataItemPersistentType = typeof(DevExpress.Persistent.BaseImpl.AuditDataItemPersistent);
             // 
+            // reportsModuleV21
+            // 
+            this.reportsModuleV21.EnableInplaceReports = true;
+            this.reportsModuleV21.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportDataV2);
+            // 
             // TestXafSolution2WindowsFormsApplication
             // 
             this.ApplicationName = "TestXafSolution2";
@@ -66,8 +73,10 @@
             this.Modules.Add(this.auditTrailModule1);
             this.Modules.Add(this.conditionalAppearanceModule1);
             this.Modules.Add(this.securityModule1);
+            this.Modules.Add(this.reportsModuleV21);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.validationWindowsFormsModule);
+            this.Modules.Add(this.reportsWindowsFormsModuleV21);
             this.Modules.Add(this.module4);
             this.Security = this.securityStrategyComplex1;
             this.UseOldTemplates = false;
@@ -90,5 +99,7 @@
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule;
         private DevExpress.ExpressApp.AuditTrail.AuditTrailModule auditTrailModule1;
         private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule1;
+        private DevExpress.ExpressApp.ReportsV2.ReportsModuleV2 reportsModuleV21;
+        private DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2 reportsWindowsFormsModuleV21;
     }
 }

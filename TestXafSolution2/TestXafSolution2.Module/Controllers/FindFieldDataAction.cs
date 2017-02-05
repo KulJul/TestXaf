@@ -62,14 +62,6 @@ namespace TestXafSolution2.Module.Controllers
                 Tracing.Tracer.LogText(ex.ToString() + "Action : Find Field Data");
             }
         }
-
-        private void FindFieldData_Activated(object sender, EventArgs e)
-        {
-            var enableFlag = (View.GetType() == typeof(ListView)) &&
-                             (View.ObjectTypeInfo.Type == typeof(Cargo) || View.ObjectTypeInfo.Type == typeof(Area) ||
-                              View.ObjectTypeInfo.Type == typeof(Picket) || View.ObjectTypeInfo.Type == typeof(Store));
-
-            this.Active.SetItemValue("EditMode", enableFlag);
-        }
+        
     }
 }

@@ -44,15 +44,15 @@ namespace TestXafSolution2.Module.Win.Controllers
             {
                 base.Unlink(args);
             }
-                
-            this.ObjectSpace.Refresh();
+
+            this.ObjectSpace.CommitChanges();
         }
         
         protected override void Link(PopupWindowShowActionExecuteEventArgs args)
         {
             base.Link(args);
 
-            this.ObjectSpace.Refresh();
+            this.ObjectSpace.CommitChanges();
         }
 
 
@@ -61,7 +61,9 @@ namespace TestXafSolution2.Module.Win.Controllers
             base.OnActivated();
             // Perform various tasks depending on the target View.
 
-            if (View.ObjectTypeInfo.Type.Name == "AuditDataItemPersistent")
+            if (View.ObjectTypeInfo.Type.Name == "AuditDataItemPersistent" ||
+               (View.GetType() == typeof(ListView) && !View.IsRoot && 
+                View.ObjectTypeInfo.Type.Name == "Picket" && View.Id == "Store_Pickets_ListView"))
                 this.Active.SetItemValue("Error", false);
         }
         protected override void OnViewControlsCreated()

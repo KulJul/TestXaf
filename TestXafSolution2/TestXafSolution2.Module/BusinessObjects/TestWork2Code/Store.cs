@@ -38,7 +38,7 @@ namespace TestXafSolution2.Module.TestWork2
             {
                 if (auditTrail == null)
                 {
-                    auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this);
+                    auditTrail = AuditedObjectWeakReference.GetAuditTrail(this.Session, this);
                 }
                 return auditTrail;
             }

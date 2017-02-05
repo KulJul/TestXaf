@@ -51,8 +51,7 @@ namespace TestXafSolution2.Module.Web.Controllers
                 }
 
 
-                this.ObjectSpace.Refresh();
-
+                this.ObjectSpace.CommitChanges();
             }
             catch (UserFriendlyException e)
             {
@@ -66,7 +65,7 @@ namespace TestXafSolution2.Module.Web.Controllers
             {
                 base.Link(args);
 
-                this.ObjectSpace.Refresh();
+                this.ObjectSpace.CommitChanges();
             }
             catch (Exception e)
             {
@@ -77,6 +76,7 @@ namespace TestXafSolution2.Module.Web.Controllers
         protected override void OnActivated()
         {
             base.OnActivated();
+            
             // Perform various tasks depending on the target View.
         }
         protected override void OnViewControlsCreated()

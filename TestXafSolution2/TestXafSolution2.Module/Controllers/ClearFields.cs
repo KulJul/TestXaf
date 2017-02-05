@@ -73,6 +73,10 @@ namespace TestXafSolution2.Module.Controllers
                 ClearFieldsAction.Enabled.SetItemValue("EditMode", ((DetailView)View).ViewEditMode == ViewEditMode.Edit);
                 ((DetailView)View).ViewEditModeChanged += new EventHandler<EventArgs>(ClearFieldsController_ViewModeChanged);
             }
+            else
+            {
+                this.Active.SetItemValue("Error", false);
+            }
         }
 
 
