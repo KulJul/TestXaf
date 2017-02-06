@@ -25,7 +25,8 @@ namespace TestXafSolution2.Module.TestWork2
             set { SetPropertyValue<int>("Number", ref fNumber, value); }
         }
         string fName;
-        [Size(10)]
+        [Indexed(Name = @"iName_Picket", Unique = true)]
+        [Size(20)]
         [DevExpress.Persistent.Validation.RuleRequiredField, DevExpress.Persistent.Validation.RuleUniqueValue("", DevExpress.Persistent.Validation.DefaultContexts.Save,
    CriteriaEvaluationBehavior = DevExpress.Persistent.Validation.CriteriaEvaluationBehavior.BeforeTransaction)]
         public string Name

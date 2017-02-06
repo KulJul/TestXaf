@@ -25,7 +25,7 @@ namespace TestXafSolution2.Module.TestWork2
             set { SetPropertyValue<int>("Number", ref fNumber, value); }
         }
         string fName;
-        [Size(10)]
+        [Size(20)]
         public string Name
         {
             get { return fName; }
@@ -58,6 +58,13 @@ namespace TestXafSolution2.Module.TestWork2
         {
             get { return fDelete_Cargo; }
             set { SetPropertyValue<DateTime>("Delete_Cargo", ref fDelete_Cargo, value); }
+        }
+        string fNameDelStore;
+        [Size(200)]
+        public string NameDelStore
+        {
+            get { return fNameDelStore; }
+            set { SetPropertyValue<string>("NameDelStore", ref fNameDelStore, value); }
         }
     }
 

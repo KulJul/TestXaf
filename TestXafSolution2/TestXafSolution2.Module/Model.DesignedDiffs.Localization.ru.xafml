@@ -29,6 +29,8 @@
         <Member Name="Create_Area" Caption="Дата создания площадки" />
         <Member Name="Delete_Area" Caption="Дата разрушения площадки" />
         <Member Name="Name" Caption="Название" />
+        <Member Name="NameDelPicketHistory" Caption="Удаленные пикеты" />
+        <Member Name="NameDelStore" Caption="Склад" />
         <Member Name="Number" Caption="Номер" />
         <Member Name="Pickets" Caption="Пикеты" />
       </OwnMembers>
@@ -39,6 +41,7 @@
         <Member Name="Create_Cargo" Caption="Дата прибытия груза" />
         <Member Name="Delete_Cargo" Caption="Дата отбытия груза" />
         <Member Name="Name" Caption="Название" />
+        <Member Name="NameDelStore" Caption="Склад" />
         <Member Name="Number" Caption="Номер" />
         <Member Name="Number_Area" Caption="Номер площадки" />
         <Member Name="Weight" Caption="Вес" />
@@ -104,8 +107,8 @@
     </ListView>
     <ListView Id="Area_Cargoes_ListView" Caption="Товар">
       <Columns>
-        <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="Number_Area" Caption="Номер площадки" />
+        <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="Weight" Caption="Вес" />
         <ColumnInfo Id="Create_Cargo" Caption="Дата прибытия груза" />
         <ColumnInfo Id="Delete_Cargo" Caption="Дата отбытия груза" />
@@ -118,6 +121,8 @@
         <PropertyEditor Id="Create_Area" Caption="Дата создания площадки" />
         <PropertyEditor Id="Delete_Area" Caption="Дата разрушения площадки" />
         <PropertyEditor Id="Name" Caption="Название" />
+        <PropertyEditor Id="NameDelPicketHistory" Caption="Удаленные пикеты" />
+        <PropertyEditor Id="NameDelStore" Caption="Удаленный склад" />
         <PropertyEditor Id="Pickets" Caption="Пикеты" />
       </Items>
       <Layout>
@@ -147,12 +152,17 @@
     </ListView>
     <ListView Id="Area_Pickets_ListView" Caption="Пикет">
       <Columns>
+        <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
         <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="NumberStore" Caption="Номер склада" />
-        <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
       </Columns>
     </ListView>
-    <ListView Id="AreaHistory_ListView" Caption="Площадка" />
+    <ListView Id="AreaHistory_ListView" Caption="Площадка">
+      <Columns>
+        <ColumnInfo Id="NameDelPicketHistory" Caption="Удаленные пикеты" />
+        <ColumnInfo Id="NameDelStore" Caption="Склад" />
+      </Columns>
+    </ListView>
     <DetailView Id="AuditDataItemPersistent_DetailView">
       <Items>
         <PropertyEditor Id="Description" Caption="Описание" />
@@ -215,6 +225,7 @@
         <PropertyEditor Id="Create_Cargo" Caption="Дата прибытия груза" />
         <PropertyEditor Id="Delete_Cargo" Caption="Дата отбытия груза" />
         <PropertyEditor Id="Name" Caption="Название" />
+        <PropertyEditor Id="NameDelStore" Caption="Удаленный склад" />
         <PropertyEditor Id="Number_Area" Caption="Номер площадки" />
         <PropertyEditor Id="Weight" Caption="Вес" />
       </Items>
@@ -248,6 +259,7 @@
         <ColumnInfo Id="Weight" Caption="Вес" />
         <ColumnInfo Id="Create_Cargo" Caption="Дата прибытия груза" />
         <ColumnInfo Id="Delete_Cargo" Caption="Дата отбытия груза" />
+        <ColumnInfo Id="NameDelStore" Caption="Склад" />
       </Columns>
     </ListView>
     <DetailView Id="ChangePasswordOnLogonParameters_DetailView">
@@ -691,8 +703,8 @@
     </ListView>
     <ListView Id="Store_Pickets_ListView" Caption="Пикет">
       <Columns>
-        <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="NumberStore" Caption="Номер склада" />
+        <ColumnInfo Id="Name" Caption="Название" />
         <ColumnInfo Id="NumberArea" Caption="Номер площадки" />
       </Columns>
     </ListView>

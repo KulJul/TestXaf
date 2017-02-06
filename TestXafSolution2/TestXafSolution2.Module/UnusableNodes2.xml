@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Area_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="NameDelCargoHistory" Removed="True" />
+      </Items>
+    </DetailView>
+    <ListView Id="Area_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="NameDelCargoHistory" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

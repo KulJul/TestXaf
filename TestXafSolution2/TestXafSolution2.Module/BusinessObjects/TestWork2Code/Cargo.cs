@@ -21,6 +21,16 @@ namespace TestXafSolution2.Module.TestWork2
         public Cargo(Session session) : base(session) { this.Create_Cargo = DateTime.Now; }
         public override void AfterConstruction() { base.AfterConstruction(); }
 
+        protected override void OnSaving()
+        {
+            if (this.Delete_Cargo.CompareTo(default(DateTime)) != 0)
+            {
+                //Добавления истории об удаленном грузе
+                var areaFilter = new XPCollection<Area>(this.Session, CriteriaOperator.Parse("Number == " + this.Number_Area.Number));
+                
+                this.NameDelStore = areaFilter[0].Pickets[0].NumberStore.Name;
+            }
+        }
 
         private XPCollection<AuditDataItemPersistent> auditTrail;
         public XPCollection<AuditDataItemPersistent> AuditTrail

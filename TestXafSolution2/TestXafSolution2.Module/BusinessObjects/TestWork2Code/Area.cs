@@ -38,17 +38,18 @@ namespace TestXafSolution2.Module.TestWork2
 
         protected override void OnDeleting()
         {
-            //Проверка существования груза на площадке. Отправленный груз тоже проверяется
+            //Проверка существования груза на площадке. 
             var CargoFilter = new XPCollection<Cargo>(this.Session, CriteriaOperator.Parse("Number_Area == " + this.Number));
-
+            
             if (CargoFilter.Count != 0)
-                throw new UserFriendlyException(new Exception(" Error : " + "На площадке лежит груз / история по отправленному грузу"));
-
-            // Обнуления связи с пикетами при удалении площадки
+                throw new UserFriendlyException(new Exception(" Error : " + "На площадке лежит груз"));
+            
+           
+            // Обнуления связи с пикетами при удалении площадки 
             var PicketFilter = new XPCollection<Picket>(this.Session, CriteriaOperator.Parse("NumberArea == " + this.Number));
+            
             foreach (var pic in PicketFilter)
                 pic.NumberArea = null;
-
 
             base.OnDeleting();
         }
@@ -72,7 +73,11 @@ namespace TestXafSolution2.Module.TestWork2
 
                     if (CargoFilter.Count != 0 && CargoFilter.Any(p => p.Delete_Cargo > this.Delete_Area))
                         throw new UserFriendlyException(new Exception(" Error : " + "Груз отправляется позже, чем будет закрыта площадка"));
-                    
+
+                    // добавление в историю
+                    this.NameDelPicketHistory = string.Join(",", PicketFilter.Select(pt => pt.Name.Trim()));
+                    this.NameDelStore = PicketFilter[0].NumberStore.Name;
+
                     foreach (var pic in PicketFilter)
                         pic.NumberArea = null;
 

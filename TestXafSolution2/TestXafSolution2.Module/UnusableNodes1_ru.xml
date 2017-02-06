@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="TestXafSolution2.Module.TestWork2.Area">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="NameDelCargoHistory" Caption="Отправленные товары" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Area_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="NameDelCargoHistory" Caption="Отправленные товары" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

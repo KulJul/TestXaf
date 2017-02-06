@@ -15,6 +15,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using TestXafSolution2.Module.TestWork2;
 using DevExpress.ExpressApp.Web.SystemModule;
+using DevExpress.ExpressApp.Win.Editors;
 
 namespace TestXafSolution2.Module.Controllers
 {

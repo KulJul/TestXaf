@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="AreaHistory_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="NumberDelPicketHistory" PropertyName="NumberDelPicketHistory" />
+        <ColumnInfo Id="NumberDelCargoHistory" PropertyName="NumberDelCargoHistory" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Area_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="NumberDelCargoHistory" Removed="True" />
+        <PropertyEditor Id="NumberDelPicketHistory" Removed="True" />
+      </Items>
+    </DetailView>
+    <ListView Id="Area_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="NumberDelCargoHistory" Removed="True" />
+        <ColumnInfo Id="NumberDelPicketHistory" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>
