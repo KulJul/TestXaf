@@ -17,30 +17,27 @@ using TestXafSolution2.Module.TestWork2;
 
 namespace TestXafSolution2.Module.Controllers
 {
+
+    /// <summary>
+    /// Класс контроллера поиска склада по имени
+    /// </summary>
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class FindFieldData : ViewController
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public FindFieldData()
         {
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
-        protected override void OnActivated()
-        {
-            base.OnActivated();
-            // Perform various tasks depending on the target View.
-        }
-        protected override void OnViewControlsCreated()
-        {
-            base.OnViewControlsCreated();
-            // Access and customize the target View control.
-        }
-        protected override void OnDeactivated()
-        {
-            // Unsubscribe from previously subscribed events and release other references and resources.
-            base.OnDeactivated();
-        }
 
+
+        /// <summary>
+        /// Метод поиска склада по имени
+        /// </summary>        
+        /// <param name="e">Аргументы поступающие в параметризированный action, включая дату</param>
         private void FindFieldDataAction_Execute(object sender, ParametrizedActionExecuteEventArgs e)
         {
             try

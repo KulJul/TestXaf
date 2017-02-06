@@ -17,30 +17,26 @@ using DevExpress.ExpressApp.DC;
 
 namespace TestXafSolution2.Module.Controllers
 {
+
+    /// <summary>
+    /// Класс контроллера обнуления полей detail view
+    /// </summary>
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class ClearFields : ViewController
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public ClearFields()
         {
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
-        protected override void OnActivated()
-        {
-            base.OnActivated();
-            // Perform various tasks depending on the target View.
-        }
-        protected override void OnViewControlsCreated()
-        {
-            base.OnViewControlsCreated();
-            // Access and customize the target View control.
-        }
-        protected override void OnDeactivated()
-        {
-            // Unsubscribe from previously subscribed events and release other references and resources.
-            base.OnDeactivated();
-        }
 
+        /// <summary>
+        /// Метод обнуления полей
+        /// </summary>
+        /// <param name="e">Аргументы поступающие в параметризированный action</param>
         private void ClearFieldsAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             try
@@ -66,6 +62,10 @@ namespace TestXafSolution2.Module.Controllers
             }
         }
 
+        /// <summary>
+        /// Метод активации контроллера
+        /// </summary>
+        /// <param name="e">Аргументы поступающие в параметризированный action</param>
         private void ClearFields_Activated(object sender, EventArgs e)
         {
             if (View.GetType() == typeof(DetailView))
@@ -80,6 +80,10 @@ namespace TestXafSolution2.Module.Controllers
         }
 
 
+        /// <summary>
+        /// Метод для отслеживания изменения типа представления
+        /// </summary>
+        /// <param name="e">Аргументы поступающие в параметризированный action</param>
         void ClearFieldsController_ViewModeChanged(object sender, EventArgs e)
         {
             ClearFieldsAction.Enabled.SetItemValue("EditMode", ((DetailView)View).ViewEditMode == ViewEditMode.Edit);

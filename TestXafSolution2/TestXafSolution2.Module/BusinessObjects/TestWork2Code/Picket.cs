@@ -11,14 +11,22 @@ using System.Linq;
 
 namespace TestXafSolution2.Module.TestWork2
 {
-
+    /// <summary>
+    /// Класс пикета
+    /// </summary>
     [DefaultClassOptions, ImageName("Bo_Picket")]
     public partial class Picket
     {
+
+        /// <summary>
+        /// Конструктор 
+        /// </summary>
+        /// <param name="session">Сессия</param>
         public Picket(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction(); }
-
-
+        
+        /// <summary>
+        /// Метод сохранения
+        /// </summary>
         protected override void OnSaving()
         {
             if(!this.IsDeleted)
@@ -46,6 +54,10 @@ namespace TestXafSolution2.Module.TestWork2
             base.OnSaving();
         }
 
+
+        /// <summary>
+        /// Метод удаления
+        /// </summary>
         protected override void OnDeleting()
         {
             if (this.NumberArea != null)
@@ -65,8 +77,15 @@ namespace TestXafSolution2.Module.TestWork2
 
             base.OnDeleting();
         }
-        
+
+        /// <summary>
+        /// История пикета
+        /// </summary>
         private XPCollection<AuditDataItemPersistent> auditTrail;
+
+        /// <summary>
+        /// Свойство истории пикета
+        /// </summary>
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {
             get

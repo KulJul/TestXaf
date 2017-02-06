@@ -65,7 +65,7 @@
         <ColumnInfo Id="NameDelStore" Removed="True" />
       </Columns>
     </ListView>
-    <ListView Id="Cargo_LookupListView" Criteria="[Delete_Cargo] Is Null" />
+    <ListView Id="Cargo_LookupListView" Criteria="[Delete_Cargo] Is Null And [Number_Area] Is Null" />
     <ListView Id="CargoHistory_ListView" ClassName="TestXafSolution2.Module.TestWork2.Cargo" Criteria="[Delete_Cargo] Is Not Null" Caption="CargoHistory" AllowDelete="False" ImageName="CargoHistory" AllowLink="False" AllowNew="False" MasterDetailMode="ListViewOnly" DataAccessMode="Client" MasterDetailView="" DetailViewID="" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" AllowEdit="False" IsNewNode="True" />

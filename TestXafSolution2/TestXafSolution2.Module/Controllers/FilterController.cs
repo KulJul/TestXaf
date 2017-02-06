@@ -16,13 +16,25 @@ using DevExpress.Persistent.Validation;
 
 namespace TestXafSolution2.Module.Controllers
 {
+
+    /// <summary>
+    /// Класс контроллера поиска объекта
+    /// </summary>
+    /// 
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class FilterController : DevExpress.ExpressApp.SystemModule.FilterController
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public FilterController()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Метод активации контроллера
+        /// </summary>
         protected override void OnActivated()
         {
             //Тк в данной версии XAF (в win приложении) данный элемент работает с ошибками, его нужно отключить

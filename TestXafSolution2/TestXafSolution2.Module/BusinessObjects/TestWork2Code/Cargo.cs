@@ -11,16 +11,26 @@ using DevExpress.Persistent.BaseImpl;
 
 namespace TestXafSolution2.Module.TestWork2
 {
-
+    /// <summary>
+    /// Класс товара
+    /// </summary>
     [DefaultClassOptions, ImageName("Bo_Cargo")]
     [Appearance("Delete", TargetItems = "*", Criteria = "Delete_Cargo > null && Delete_Cargo >= Create_Cargo && Create_Cargo > null",
                                                                                            BackColor = "MistyRose", Enabled = false)]
     [RuleCriteria("Delete_Cargo >= Create_Cargo")]
     public partial class Cargo
     {
-        public Cargo(Session session) : base(session) { this.Create_Cargo = DateTime.Now; }
-        public override void AfterConstruction() { base.AfterConstruction(); }
 
+        /// <summary>
+        /// Конструктор 
+        /// </summary>
+        /// <param name="session">Сессия</param>
+        public Cargo(Session session) : base(session) { this.Create_Cargo = DateTime.Now; }
+        
+
+        /// <summary>
+        /// Метод сохранения
+        /// </summary>
         protected override void OnSaving()
         {
             if (this.Delete_Cargo.CompareTo(default(DateTime)) != 0)
@@ -30,9 +40,19 @@ namespace TestXafSolution2.Module.TestWork2
                 
                 this.NameDelStore = areaFilter[0].Pickets[0].NumberStore.Name;
             }
+
+
         }
 
+        /// <summary>
+        /// История товара
+        /// </summary>
         private XPCollection<AuditDataItemPersistent> auditTrail;
+
+
+        /// <summary>
+        /// Свойство истории товара
+        /// </summary>
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {
             get

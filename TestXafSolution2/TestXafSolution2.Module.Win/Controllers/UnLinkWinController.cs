@@ -17,15 +17,27 @@ using TestXafSolution2.Module.TestWork2;
 
 namespace TestXafSolution2.Module.Win.Controllers
 {
+
+    /// <summary>
+    /// Класс контроллера добавления и удаления объектов
+    /// </summary>
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class UnLinkWinController : LinkUnlinkController
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public UnLinkWinController()
         {
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
 
+
+        /// <summary>
+        /// Метод для удаления объектов из коллекции
+        /// </summary>
+        /// <param name="args">Связаные объекты</param>
         protected override void Unlink(SimpleActionExecuteEventArgs args)
         {
             if (View.GetType() == typeof(ListView) && !View.IsRoot && View.ObjectTypeInfo.Type.Name == "Picket")
@@ -47,7 +59,12 @@ namespace TestXafSolution2.Module.Win.Controllers
 
             this.ObjectSpace.CommitChanges();
         }
-        
+
+
+        /// <summary>
+        /// Метод для добавления объектов в коллекцию
+        /// </summary>
+        /// <param name="args">Связаных объекты</param>
         protected override void Link(PopupWindowShowActionExecuteEventArgs args)
         {
             base.Link(args);
@@ -56,6 +73,9 @@ namespace TestXafSolution2.Module.Win.Controllers
         }
 
 
+        /// <summary>
+        /// Метод активации контроллера
+        /// </summary>
         protected override void OnActivated()
         {
             base.OnActivated();
@@ -66,15 +86,6 @@ namespace TestXafSolution2.Module.Win.Controllers
                 View.ObjectTypeInfo.Type.Name == "Picket" && View.Id == "Store_Pickets_ListView"))
                 this.Active.SetItemValue("Error", false);
         }
-        protected override void OnViewControlsCreated()
-        {
-            base.OnViewControlsCreated();
-            // Access and customize the target View control.
-        }
-        protected override void OnDeactivated()
-        {
-            // Unsubscribe from previously subscribed events and release other references and resources.
-            base.OnDeactivated();
-        }
+
     }
 }

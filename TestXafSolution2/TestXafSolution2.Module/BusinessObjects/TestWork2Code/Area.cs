@@ -15,18 +15,25 @@ using DevExpress.ExpressApp.DC;
 
 namespace TestXafSolution2.Module.TestWork2
 {
-
+    /// <summary>
+    /// Класс площадки
+    /// </summary>
     [DefaultClassOptions, ImageName("Bo_Area")]
     [Appearance("Delete", TargetItems = "*", Criteria = "Delete_Area > null && Delete_Area >= Create_Area && Create_Area > null",
                                                                                        BackColor = "MistyRose", Enabled = false)]
     [RuleCriteria("Delete_Area >= Create_Area")]
     public partial class Area
     {
+        /// <summary>
+        /// Конструктор 
+        /// </summary>
+        /// <param name="session">Сессия</param>
         public Area(Session session) : base(session) { this.Create_Area = DateTime.Now; }
-        public override void AfterConstruction() { base.AfterConstruction(); }
 
-        const int DeleteStore = 100;
-
+        
+        /// <summary>
+        /// Перечесление пикетов в виде строки
+        /// </summary>
         [Browsable(false)]
         public string PicketsString
         {
@@ -36,6 +43,10 @@ namespace TestXafSolution2.Module.TestWork2
             }
         }
 
+
+        /// <summary>
+        /// Метод удаления
+        /// </summary>
         protected override void OnDeleting()
         {
             //Проверка существования груза на площадке. 
@@ -54,6 +65,10 @@ namespace TestXafSolution2.Module.TestWork2
             base.OnDeleting();
         }
 
+
+        /// <summary>
+        /// Метод сохранения
+        /// </summary>
         protected override void OnSaving()
         {            
 
@@ -112,9 +127,15 @@ namespace TestXafSolution2.Module.TestWork2
         }
 
         
-
-
+        /// <summary>
+        /// История площадки
+        /// </summary>
         private XPCollection<AuditDataItemPersistent> auditTrail;
+
+
+        /// <summary>
+        /// Свойство истории площадки
+        /// </summary>
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {
             get
@@ -127,13 +148,6 @@ namespace TestXafSolution2.Module.TestWork2
             }
         }
     }
-
-    /*
-    [DomainComponent, DefaultClassOptions]
-    public partial class AreaHistory
-    {
-        public string Name { get; set; }
-    }*/
-
+    
 
 }

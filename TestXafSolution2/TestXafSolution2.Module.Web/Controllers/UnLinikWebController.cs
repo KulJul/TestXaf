@@ -18,15 +18,26 @@ using TestXafSolution2.Module.TestWork2;
 
 namespace TestXafSolution2.Module.Web.Controllers
 {
+
+    /// <summary>
+    /// Класс веб-контроллера добавления и удаления объектов
+    /// </summary>
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class UnLinikWebController : WebLinkUnlinkController
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public UnLinikWebController()
         {
             InitializeComponent();
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
-        
+
+        /// <summary>
+        /// Метод для удаления объектов из коллекции
+        /// </summary>
+        /// <param name="args">Связаные объекты</param>
         protected override void Unlink(SimpleActionExecuteEventArgs args)
         {
             try
@@ -59,6 +70,10 @@ namespace TestXafSolution2.Module.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Метод для добавления объектов в коллекцию
+        /// </summary>
+        /// <param name="args">Связаных объекты</param>
         protected override void Link(PopupWindowShowActionExecuteEventArgs args)
         {
             try
@@ -72,22 +87,6 @@ namespace TestXafSolution2.Module.Web.Controllers
                 throw new UserFriendlyException(e.Message);
             }
         }
-        
-        protected override void OnActivated()
-        {
-            base.OnActivated();
-            
-            // Perform various tasks depending on the target View.
-        }
-        protected override void OnViewControlsCreated()
-        {
-            base.OnViewControlsCreated();
-            // Access and customize the target View control.
-        }
-        protected override void OnDeactivated()
-        {
-            // Unsubscribe from previously subscribed events and release other references and resources.
-            base.OnDeactivated();
-        }
+
     }
 }

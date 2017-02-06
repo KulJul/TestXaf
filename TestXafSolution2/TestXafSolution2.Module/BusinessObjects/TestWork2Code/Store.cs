@@ -11,13 +11,23 @@ using DevExpress.Persistent.BaseImpl;
 namespace TestXafSolution2.Module.TestWork2
 {
 
+    /// <summary>
+    /// Класс склада
+    /// </summary>
     [DefaultClassOptions, ImageName("Bo_Store")]
     public partial class Store
     {
+
+        /// <summary>
+        /// Конструктор 
+        /// </summary>
+        /// <param name="session">Сессия</param>
         public Store(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction(); }
+        
 
-
+        /// <summary>
+        /// Метод удаления
+        /// </summary>
         protected override void OnDeleting()
         {
             //Проверка существования пикетов на складе при удалении
@@ -30,8 +40,14 @@ namespace TestXafSolution2.Module.TestWork2
         }
 
 
-
+        /// <summary>
+        /// История склада
+        /// </summary>
         private XPCollection<AuditDataItemPersistent> auditTrail;
+
+        /// <summary>
+        /// Свойство истории склада
+        /// </summary>
         public XPCollection<AuditDataItemPersistent> AuditTrail
         {
             get
